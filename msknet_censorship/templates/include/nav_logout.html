@@ -1,0 +1,14 @@
+{% if request.user.is_authenticated %}
+<li><span id="nav-username">{{request.user.username}}</span></li>
+<li>
+    <a class="md-button noline" href="{% url 'logout' %}" title="登出">
+        <i class="material-icons mdi mdi-power md-24 md-light"></i>
+    </a>
+</li>
+{% else %}
+<li>
+    <a class="md-button noline" href="{% url 'social:begin' 'discourse' %}" title="登录">
+        <i class="material-icons mdi mdi-account md-24 md-light"></i>
+    </a>
+</li>
+{% endif %}

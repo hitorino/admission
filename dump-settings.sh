@@ -1,0 +1,1 @@
+./manage.py dumpdata msknet_censorship.SiteSettings --output=./msknet_censorship/fixtures/site_settings.json

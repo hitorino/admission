@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{% block title %}{{questionnaire.name}}{% endblock %}</h1>
+{% if request.user.is_authenticated %}
+<p class="middle center">您的hitorino insider 申请已经成功提交，目前正在等待管理组审核，请您耐心等候。感谢您的支持。</p>
+<div class="center">
+<a class="ds-button middle center noline msk-color-thirdary" href="https://forum.hitorino.moe">
+回到论坛
+</a>
+</div>
+{%endif%}
+{%endblock%}

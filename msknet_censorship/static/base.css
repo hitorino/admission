@@ -1,0 +1,663 @@
+/* =====================   Colors   ===================== */
+
+:root {
+	--MDPRIMARYCOLOR: #ff8888;
+	--MDPRIMARYCOLOR-LIGHT: #ffaaaa;
+	--MDSECONDARYCOLOR: orange;
+	--MDTHIRDARYCOLOR: #e9e9e9;
+}
+/* =====================    Font    ===================== */
+
+:root {
+	--MDSANSFONT: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,sans-serif, "Microsoft YaHei", "微软雅黑",Arial;
+	font-family: var(--MDSANSFONT);
+}
+
+
+.material-icons {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;	/* Preferred icon size */
+	display: block;
+	line-height: 1;
+	text-transform: none;
+	letter-spacing: normal;
+	word-wrap: normal;
+	white-space: nowrap;
+	direction: ltr;
+
+	/* Support for all WebKit browsers. */
+	-webkit-font-smoothing: antialiased;
+	/* Support for Safari and Chrome. */
+	text-rendering: optimizeLegibility;
+
+	/* Support for Firefox. */
+	-moz-osx-font-smoothing: grayscale;
+
+	/* Support for IE. */
+	font-feature-settings: 'liga';
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+
+
+/* ===================== Elevations ===================== */
+
+:root {
+	--MDELEV1: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+	0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+	0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+
+	--MDELEV2: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+	0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+	0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+
+	--MDELEV3: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),
+	0px 3px 4px 0px rgba(0, 0, 0, 0.14),
+	0px 3px 3px -2px rgba(0, 0, 0, 0.12);
+
+	--MDELEV4: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+	0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+	0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+	--MDELEV5: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+	0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+	0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+
+	--MDELEV6: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+	0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+	0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+
+	--MDELEV7: 0px 4px 5px -2px rgba(0, 0, 0, 0.2),
+	0px 7px 10px 1px rgba(0, 0, 0, 0.14),
+	0px 2px 16px 1px rgba(0, 0, 0, 0.12);
+
+	--MDELEV8: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+	0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+	0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+
+	--MDELEV9: 0px 5px 6px -3px rgba(0, 0, 0, 0.2),
+	0px 9px 12px 1px rgba(0, 0, 0, 0.14),
+	0px 3px 16px 2px rgba(0, 0, 0, 0.12);
+
+	--MDELEV10: 0px 6px 6px -3px rgba(0, 0, 0, 0.2),
+	0px 10px 14px 1px rgba(0, 0, 0, 0.14),
+	0px 4px 18px 3px rgba(0, 0, 0, 0.12);
+
+	--MDELEV11: 0px 6px 7px -4px rgba(0, 0, 0, 0.2),
+	0px 11px 15px 1px rgba(0, 0, 0, 0.14),
+	0px 4px 20px 3px rgba(0, 0, 0, 0.12);
+
+	--MDELEV12: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
+	0px 12px 17px 2px rgba(0, 0, 0, 0.14),
+	0px 5px 22px 4px rgba(0, 0, 0, 0.12);
+
+	--MDELEV13: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
+	0px 13px 19px 2px rgba(0, 0, 0, 0.14),
+	0px 5px 24px 4px rgba(0, 0, 0, 0.12);
+
+	--MDELEV14: 0px 7px 9px -4px rgba(0, 0, 0, 0.2),
+	0px 14px 21px 2px rgba(0, 0, 0, 0.14),
+	0px 5px 26px 4px rgba(0, 0, 0, 0.12);
+
+	--MDELEV15: 0px 8px 9px -5px rgba(0, 0, 0, 0.2),
+	0px 15px 22px 2px rgba(0, 0, 0, 0.14),
+	0px 6px 28px 5px rgba(0, 0, 0, 0.12);
+
+	--MDELEV16: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),
+	0px 16px 24px 2px rgba(0, 0, 0, 0.14),
+	0px 6px 30px 5px rgba(0, 0, 0, 0.12);
+
+	--MDELEV17: 0px 8px 11px -5px rgba(0, 0, 0, 0.2),
+	0px 17px 26px 2px rgba(0, 0, 0, 0.14),
+	0px 6px 32px 5px rgba(0, 0, 0, 0.12);
+
+	--MDELEV18: 0px 9px 11px -5px rgba(0, 0, 0, 0.2),
+	0px 18px 28px 2px rgba(0, 0, 0, 0.14),
+	0px 7px 34px 6px rgba(0, 0, 0, 0.12);
+
+	--MDELEV19: 0px 9px 12px -6px rgba(0, 0, 0, 0.2),
+	0px 19px 29px 2px rgba(0, 0, 0, 0.14),
+	0px 7px 36px 6px rgba(0, 0, 0, 0.12);
+
+	--MDELEV20: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),
+	0px 20px 31px 3px rgba(0, 0, 0, 0.14),
+	0px 8px 38px 7px rgba(0, 0, 0, 0.12);
+
+	--MDELEV21: 0px 10px 13px -6px rgba(0, 0, 0, 0.2),
+	0px 21px 33px 3px rgba(0, 0, 0, 0.14),
+	0px 8px 40px 7px rgba(0, 0, 0, 0.12);
+
+	--MDELEV22: 0px 10px 14px -6px rgba(0, 0, 0, 0.2),
+	0px 22px 35px 3px rgba(0, 0, 0, 0.14),
+	0px 8px 42px 7px rgba(0, 0, 0, 0.12);
+
+	--MDELEV23: 0px 11px 14px -7px rgba(0, 0, 0, 0.2),
+	0px 23px 36px 3px rgba(0, 0, 0, 0.14),
+	0px 9px 44px 8px rgba(0, 0, 0, 0.12);
+
+	--MDELEV24: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+	0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+	0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* Colour Classes */
+.msk-color-primary {
+	background-color: var(--MDPRIMARYCOLOR-LIGHT);
+	color:white;
+}
+
+.msk-color-alert {
+	background-color: #e03;
+	color: white;
+}
+
+.msk-color-thirdary {
+	color: black;
+	background-color: var(--MDTHIRDARYCOLOR);
+}
+
+a {
+	color: var(--MDPRIMARYCOLOR);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--MDSECONDARYCOLOR);
+}
+
+
+#toolbar {
+	position: fixed;
+	top: 0;
+	left: -4px;
+	box-sizing: border-box;
+	height: 56px;
+	width: calc(100% + 8px);
+	padding: 4px;
+	background-color: var(--MDPRIMARYCOLOR);
+	box-shadow: var(--MDELEV2);
+	z-index: 1002;
+}
+#toolbar * {
+	-webkit-tap-highlight-color: transparent;
+	vertical-align: middle;
+}
+
+#toolbar .left{
+	position: absolute;
+	top: 4px;
+	left: 8px;
+}
+
+#toolbar .right{
+	position: absolute;
+	top: 50%;
+	right: 8px;
+	transform: translate(0, -50%);
+}
+
+#toolbar .center{
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;	
+	transform: translate(-50%,-50%);
+}
+
+
+/* Material Design Buttons for toolbar */
+.md-button {
+	padding: 12px;
+	border-radius: 50%;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	color: #fff;
+	display: block;
+	line-height: 24px;
+	transition: all 0.5s;
+}
+.md-button:hover {
+	background-color: var(--MDSECONDARYCOLOR);
+}
+
+i.mdi,
+i.mdi:before {
+	text-align: center;
+	display: block;
+	margin-right: 0 !important;
+	width: 24px;
+}
+
+.md-button > i.mdi:before,
+.menu > i.mdi:before {
+	font-size: 24px;
+	margin: 0;
+	width: 24px;
+	height: 24px;
+	color: #fff;
+}
+
+
+/* site-logo */
+#toolbar > #title {
+	height: 48px;
+	width: 160px;
+}
+#toolbar > #title img {
+	display: block;
+	margin: auto;
+	padding: 4px 5px;
+	height: 40px;
+	width: auto;
+}
+
+
+#toolbar .menu{
+	max-height: 48px;
+	margin: 4px;
+	margin-right: 6px;
+}
+
+#toolbar .menu li {
+	display: inline-block;
+	color: #fff;
+}
+
+#toolbar .menu span{
+	margin: 6px;
+	padding: 4px 12px;
+	display: inline-block;
+}
+
+#toolbar .menu a {
+	color: #000;
+}
+#toolbar .menu a:hover {
+	color: #fff;
+	background-color: var(--MDSECONDARYCOLOR);
+}
+
+
+#toolbar ul.menu > li > a > i.mdi {
+	display: block;
+	width: 24px;
+}
+
+
+ul.nodot li{
+	list-style:none;
+}
+
+a.noline,
+a.noline * {
+	color: inherit;
+	text-decoration: none;
+}
+
+.middle {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center {
+	text-align: center;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+
+
+
+
+/* ===== general layout ===== */
+body {
+	min-width: 560px;
+	margin: 0;
+	background-color: #eee;
+}
+.wrap {
+	max-width: 672px;
+	padding: 48px 32px;
+	background-color: white;
+	box-shadow: var(--MDELEV2);
+	box-sizing: border-box;
+	position: relative;
+	border-radius: 2px;
+	margin: 112px auto 56px auto;
+}
+.description {
+	margin: 0 auto 56px auto;
+}
+.description > h1 {
+	text-align: center;
+	font-size: 32px;
+	line-height: 32px;
+	margin: 0 0 32px 0;
+}
+.description > p {
+	font-size: 16px;
+	margin: 16px 0;
+}
+.report .msk-form {
+	margin: 0 auto;
+}
+.question {
+	margin: 0 0 48px 0;
+}
+.question > .stem {
+	margin: 0 auto 16px 0;
+	font-size: 20px;
+}
+.question fieldset {
+	margin: 0;
+}
+
+
+
+
+/* ===== radio input ===== */
+
+.question .choice input[type="radio"] {
+	opacity: 0;
+	cursor: pointer;
+	position: absolute;
+	width: 20px;
+	height: 32px;
+	margin: 0;
+}
+
+.question .choice .checkmark {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin: 0 4px;
+	background-color: white;
+	box-shadow: 0 0 0 2px white,
+	0 0 0 4px var(--MDPRIMARYCOLOR);
+	border-radius: 10px;
+	transition: all 0.25s;
+}
+.question .choice input[type="radio"]:hover + .checkmark {
+	box-shadow: 0 0 0 2px white,
+	0 0 0 4px var(--MDSECONDARYCOLOR);
+}
+.question .choice input[type="radio"]:checked + .checkmark {
+	background-color: var(--MDSECONDARYCOLOR);
+	box-shadow: 0 0 0 2px white,
+	0 0 0 4px var(--MDSECONDARYCOLOR);
+	animation: radio-checked 0.5s;
+}
+@keyframes radio-checked {
+	0% {box-shadow: 0 0 0 2px white,
+	0 0 0 4px var(--MDSECONDARYCOLOR);}
+	50% {box-shadow: 0 0 0 2px white,
+	0 0 0 4px var(--MDSECONDARYCOLOR),
+	0 0 0 16px rgba(255,165,0,0.2);}
+	100% {box-shadow: 0 0 0 2px white,
+	0 0 0 4px var(--MDSECONDARYCOLOR),
+	0 0 0 12px rgba(255,165,0,0);}
+}
+
+
+
+
+/* ===== multiple choice ===== */
+
+.question > .choices {
+	border: none;
+	outline: none;
+	padding: 0;
+	line-height: 32px;
+}
+.question > .choices label {
+	margin-left: 8px;
+}
+
+
+
+
+/* ===== linear scale ===== */
+
+.question > .scale {
+	position: relative;
+	height: 48px;
+}
+.question > .scale > .min_desc,
+.question > .scale > .max_desc {
+	position: absolute;
+	bottom: 0;
+	line-height: 32px;
+}
+.question > .scale > .max_desc {
+	right: 0;
+}
+.question > .scale > .min_desc {
+	left: 0;
+}
+.question > .scale > .choices {
+	border: none;
+	outline: none;
+	padding: 0;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	line-height: 32px;
+}
+.question > .scale > .choices > .choice {
+	display: inline-block;
+	margin: 0 calc((100% - 320px) / 18);
+}
+.question > .scale > .choices > .choice > .number-label {
+	font-size: 12px;
+	line-height: 16px;
+}
+
+
+
+
+/* ===== dropdown ===== */
+
+.question > .dropdown {
+	display: inline-block;
+	width: 80px;
+	position: relative;
+	border-radius: 4px;
+	border-bottom: solid 2px var(--MDPRIMARYCOLOR);
+	background-color: rgba(255,136,136,0.1);
+	transition: all 0.25s;
+}
+.question > .dropdown:hover {
+	border-bottom: solid 2px var(--MDSECONDARYCOLOR);
+	background-color: rgba(255,165,0,0.2);
+}
+.question > .dropdown > select {
+	width: calc(100% - 16px);
+	margin-left: 16px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 32px;
+	background-color: transparent;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+	appearance: none;
+	text-overflow: ''; /* this is important! */
+}
+.question > .dropdown::after {
+	position: absolute;
+	top: 0;
+	right: 16px;
+	content: "▾";
+	line-height: 32px;
+	pointer-events: none;
+
+}
+.question > .dropdown-unit {
+	display: inline-block;
+	margin-left: 6px;
+	line-height: 32px;
+}
+
+
+
+
+/* ===== paragraph ===== */
+
+.question > .text-expand {
+	position: relative;
+	height: auto;
+	min-height: 120px;
+}
+.question > .text-expand > pre {
+	opacity: 0;
+}
+.question > .text-expand > pre > br {
+	visibility: hidden;
+}
+.question > .text-expand > textarea,
+.question > .text-expand > pre {
+	margin: 0;
+	padding: 16px;
+	outline: none;
+	width: 100%;
+	box-sizing: border-box;
+	resize: none; 
+	overflow: auto;
+	font-size: 16px;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	font-family: var(--MDSANSFONT);
+}
+.question > .text-expand > textarea {
+	background-color: rgba(255,136,136,0.1);
+	border: none;
+	border-bottom: solid var(--MDPRIMARYCOLOR) 2px;
+	border-radius: 4px;
+	height: 160px;
+	transition: all 0.25s;
+}
+.question > .text-expand > textarea:focus {
+	border-bottom: solid var(--MDSECONDARYCOLOR) 4px;
+	background-color: rgba(255,165,0,0.2);
+}
+.question > .text-expand > textarea:hover:not(:focus) {
+	border-bottom: solid var(--MDSECONDARYCOLOR) 2px;
+	background-color: rgba(255,165,0,0.2);
+}
+.question div.text-expand.active textarea {
+	position: absolute;
+	top:0;
+	left:0;
+	overflow: hidden;
+	resize: none;
+	height: 100%;
+}
+
+
+
+
+/* ===== multiple choice matrix ===== */
+
+.question > table {
+	width: 100%;
+	border: none;
+	border-collapse: collapse;
+}
+.question > table * {
+	padding: 0;
+	font-weight: normal;
+	text-align: center;
+}
+.question > table th {
+	width: 25%;
+}
+.question > table tr {
+	height: 40px;
+}
+.question > table > tbody tr:nth-of-type(odd) {
+	background-color: rgba(255,136,136,0.1);
+}
+.question > table > tbody tr:nth-of-type(even) {
+	background-color: rgba(255,136,136,0.2);
+}
+.question > table > tbody tr:hover:not(:focus) {
+	background-color: rgba(255,165,0,0.25);
+}
+.question > table > tbody th {
+	text-align: left;
+	padding-left: 16px;
+	min-width: 80px;
+}
+.question > table > tbody input {
+	margin: 10px auto;
+}
+
+
+
+
+
+/* ===== submit button ===== */
+
+.ds-button {
+	display: block;
+	margin: auto;
+	outline: none;
+	border: none;
+	border-radius: 2px;
+	padding: 0 12px;
+	width: fit-content;
+	font-size: 20px;
+	line-height: 40px;
+	color: white !important;
+	background-color: var(--MDPRIMARYCOLOR);
+	transition: all 0.25s;
+}
+.ds-button:hover {
+	box-shadow: var(--MDELEV2);
+	background-color: var(--MDSECONDARYCOLOR);
+	cursor: pointer;
+}
+.ds-button:active {
+	box-shadow: var(--MDELEV6);
+}
+
+
+
+
+/* ===== conditional questions ===== */
+
+.question.conditional {
+	animation: appear 0.5s;
+}
+.question.conditional.fading {
+	animation: disappear 0.5s;
+	animation-fill-mode: forwards;
+}
+@keyframes appear {
+	0% {opacity: 0; max-height: 0; margin: 0;}
+	100% {opacity: 1; max-height: 180px;}
+}
+@keyframes disappear {
+	0% {opacity: 1; max-height: 180px;}
+	100% {opacity: 0; max-height: 0; margin: 0;}
+}

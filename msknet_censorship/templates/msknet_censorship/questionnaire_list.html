@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="description">
+<h1>{% block title%}所有调查问卷{%endblock%}</h1>
+</div>
+<ul class="nodot">
+  {% for quiz in questionnaire_list %}
+  <li><a href="{% url 'quiz' quiz.id %}">{{quiz.name}}</a></li>
+  {% empty %}
+  竟然一个也没有……
+  {% endfor %}
+</ul>
+{% endblock %}
+

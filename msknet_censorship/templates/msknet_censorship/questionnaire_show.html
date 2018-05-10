@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "include/dependencies.html" %}
+<div class="description">
+  <h1>{% block title %}{{questionnaire.name}}{% endblock %}</h1>
+  {{questionnaire.description|safe|linebreaks}}
+{% comment %}
+  {% if pending %}
+<p>您的 hitorino* insider 申请由于有效信息不足已被退回，我们建议您使用更加完善的资料再次申请。感谢您的理解。</p>
+{% endif %}
+{% endcomment %}
+</div>
+<form method="POST" class="msk-form" novalidate>
+{% csrf_token %}
+{% for question in questions %}
+<div data-question-id="{{question.id}}" class="question">
+<p class="stem">{{question.question_text}}</p>
+  {% if question.is_choice or question.is_choices%}
+    {% if question.is_dropdown %}
+    <div class="dropdown answer">
+      <select name="qid_{{question.id}}" {% if not question.optional%}required{%endif%}>
+        <option class="empty" selected></option>
+        {% for choice in question.choice_all %}
+          <option id="qid_{{question.id}}_cid_{{choice.id}}" value="{{choice.id}}">{{choice.text_content}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    {% if question.has_unit%}
+    <div class="dropdown-unit">
+        {{question.dropdown_unit}}
+    </div>
+    {% endif %}
+    {% else %}
+    <fieldset class="choices answer">
+      {% for choice in question.choice_all %}
+      <div class="choice">
+        <input id="qid_{{question.id}}_cid_{{choice.id}}" type="radio" name="qid_{{question.id}}" value="{{choice.id}}" class="front" {% if not question.optional%}required{%endif%}>
+        <div class="checkmark"></div>
+
+        <label for="qid_{{question.id}}_cid_{{choice.id}}">
+          {{choice.text_content}}
+        </label>
+      </div>
+      {% endfor %}
+    </fieldset>
+    {% endif %}
+  {% elif question.is_scale %}
+  <div class="scale answer">
+    <span class="min_desc">{{question.scalequestion.min_description}}</span>
+    <fieldset class="choices">
+      {% for number in question.scalequestion.range %}
+        <div class="choice">
+            <div class="number-label">{{number}}</div>
+            <input id="qid_{{question.id}}_{{number}}" type="radio" name="qid_{{question.id}}" value="{{number}}" class="front" {% if not question.optional%}required{%endif%}>
+            <div class="checkmark"></div>
+            <label for="qid_{{question.id}}_{{number}}">
+            </label>
+        </div>{% endfor %}
+    </fieldset>
+    <span class="max_desc">{{question.scalequestion.max_description}}</span>
+  </div>
+  {% elif question.is_table%}
+  <table class="answer">
+    <thead>
+      <tr>
+        <th></th>
+        {% for x in question.x_axis_entries %}
+          <th class="center">{{x.text_content}}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+        {% for y in question.y_axis_entries %}
+          <tr>
+            <th>{{y.text_content}}</th>
+            {% for x in question.x_axis_entries %}
+              <td class="center choice">
+                <input id="qid_{{question.id}}_xid_{{x.id}}_yid_{{y.id}}" type="radio" name="qid_{{question.id}}_yid_{{y.id}}" value="{{x.id}}" class="front" {% if not question.optional%}required{%endif%}>
+                <div class="checkmark"></div>
+                <label for="qid_{{question.id}}_xid_{{x.id}}_yid_{{y.id}}" class="radio container">
+                </label>
+              </td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  {% elif question.is_text%}
+  <div class="answer text-expand">
+    <pre><span id="sync_{{question.id}}"></span><br></pre>
+    <textarea id="qid_{{question.id}}" name="qid_{{question.id}}" {% if not question.optional%}required placeholder="必答"{%else%}placeholder="可选"{%endif%}></textarea>
+  </div>
+  {% endif %}
+</div>
+{% endfor %}
+<input class="ds-button middle noline msk-color-thirdary" type="submit" value="我已经谨慎地填写好，提交"/>
+</form>
+{% endblock %}

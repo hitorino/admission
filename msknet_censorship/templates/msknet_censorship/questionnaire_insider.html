@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{% block title %}{{questionnaire.name}}{% endblock %}</h1>
+{% if request.user.is_authenticated %}
+<p class="middle center">您已经是 hitorino* insider。</p>
+<div class="center">
+<a class="ds-button middle center noline msk-color-thirdary" href="https://forum.hitorino.moe">
+回到论坛
+</a>
+</div>
+{%endif%}
+{%endblock%}

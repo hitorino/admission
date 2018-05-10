@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block content %}
+{% load user_tools %}
+<div class="description">
+<h1>{% block title %}{{username|hide_username}} 的 hitorino 申请报告{% endblock %}</h1>
+</div>
+
+<div class="middle report">
+  <p>
+    <span>审核者：</span>{{censor.username}}
+    <a href="/logout/" class="ds-button noline msk-color-thirdary">登出</a>
+  </p>
+  {% comment %}
+  <p><span>用户名：</span><a style="color:#00a2e5;" class="noline" href="https://forum.hitorino.moe/admin/users/{{duid}}/{{username}}">{{username}}</a></p>
+  {% endcomment %}
+  {% if insider %}
+    <p>[已经钦点] 她现在是 Hitorino 里区会员，我们不支持会员？</p>
+  {% else %}
+    <p>
+    {% if pending and not is_under_review %}
+      [已被批判] 用户的申请已被驳回，但可以再次申请。
+    {% elif blacklisted%}
+      [已经被续] 用户已被彻底拒绝。
+    {% elif pending and is_under_review %}
+      [等待内定] 用户的申请已被驳回，已经再次提交申请。
+    {% else %}
+      [等待内定] 就算不是 Hitorino 里区会员，也要按照基本法。
+    {% endif %}
+    </p>
+  {% endif %}
+    {% if insider %}
+      <a href="{% url 'user-status-clear' uid=uid %}">[点击撤销] 谁让她进里区的？一派胡言！</a>
+    {% else %}
+      {% if blacklisted %}
+        <a href="{% url 'user-status-clear' uid=uid %}">[点击撤销] 她还要再做一个报告，让几百个审核员一致通过</a>
+      {% elif pending and not is_under_review%}
+        <a href="{% url 'user-status-clear' uid=uid %}">[点击撤销] 她还要再做一个报告，让几百个审核员一致通过</a>
+      {% else %}
+        <a href="{% url 'user-rejected' uid=uid %}">[点击驳回] 她还得学习一个</a><br/>
+        <a href="{% url 'user-blacklisted' uid=uid %}">[点击拒绝] 你们啊，naive！</a><br/>
+        <a href="{% url 'user-modified' uid=uid %}">[点击授权] 于是她就到了里区</a>
+      {% endif %}
+    {% endif %}
+
+  <p>共有 {{suggestions|length}} 位长者对该特首表达了意见，其中 {{suggestions_agree|length}} 位支持， {{suggestions_disagree|length}} 位反对。</p>
+  <table class="msk-table msk-table-border">
+    <thead>
+      <tr><th>长者</th><th>好不好啊</th><th>决定权</th></tr>
+    </thead>
+    <tbody>
+      {% for suggest in suggestions %}
+      <tr>
+        {% if suggest.elder == censor %}
+        <td class="msk-color-primary"><a href="#decision" class="noline">{{suggest.elder.username}}</a></td>
+        {% else %}
+        <td>{{suggest.elder.username}}</td>
+        {% endif %}
+        <td>
+        {% if suggest.decision == True %}
+        好啊！
+        {% elif suggest.decision == False %}
+        我说不支持。
+        {% else %}
+        无可奉告！
+        {%endif%}
+        </td>
+        <td>{{suggest.suggest|linebreaks}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <form action="{% url 'user-decision' uid=uid%}" method="post" class="msk-form">
+  {% csrf_token %}
+  <p><span>{{censor.username}}，{{username|hide_username}}进里区好不好啊：</span>
+    <select id="decision" name="decision">
+      <option value="unknown">无可奉告</option>
+      <option value="yes" {% if suggest and suggest.decision == True %} selected{%endif%}>好啊</option>
+      <option value="no" {% if suggest and suggest.decision == False %} selected{% endif %}>我说不支持</option>
+      </select>
+  </p><p>我们的决定权：</p>
+    <div class="text-expand">
+      <pre><span id="suggest"></span><br/></pre>
+      <textarea name="suggest">{{suggest.suggest}}</textarea>
+    </div>
+      <input type="submit" value="钦定" class="button" />
+  </form>
+</div>
+  {% for current_commit in commits %}
+  {% with is_latest=forloop.first %}
+
+    <div class="middle">
+    {% include "include/adm_report_user_commit.html" %}
+    </div>
+  {% endwith %}
+  {% endfor %}
+
+{% endblock %}

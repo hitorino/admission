@@ -1,0 +1,24 @@
+{% with c=current_commit %}
+{% url 'delete-commit' cid=c.commit.id as the_url %}
+{% if is_latest %}
+  <ul class="callout msk-color-primary nodot">
+{% else %}
+  <ul class="callout msk-color-thirdary nodot">
+{% endif %}
+    <li><span>问卷名称：</span>{{c.commit.questionnaire.name}}</li>
+    <li><span>提交时间：</span>{{c.commit.commit_time}}</li>
+    <li>
+      {% if c.commit.is_under_review %}审核中{% else %}审核结束{% endif %}
+    </li>
+    <li><a class="button ds-button noline msk-color-alert" href="{{ the_url }}?next={{request.path}}">删除</a>
+    </li>
+  </ul>
+    <ol>
+    {% for q,a in c.questions.items %}
+      <li>
+        <p>{{q}}</p>
+        <p>{{a|linebreaks}}</p>
+      </li>
+    {% endfor %}
+    </ol>
+{% endwith %}

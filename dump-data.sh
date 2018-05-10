@@ -1,0 +1,1 @@
+./manage.py dumpdata --exclude=auth --exclude=msknet_censorship.UserSuggest --exclude=msknet_censorship.Answer --exclude=msknet_censorship.AxisEntryAnswer --output ./msknet_censorship/fixtures/questionnaire_for_hitorino_gforms.json --exclude=contenttypes --exclude=sessions --exclude social_django --exclude=msknet_censorship.Commit --exclude=admin

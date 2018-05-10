@@ -1,0 +1,52 @@
+<script>
+    var DEPENDENCIES = {{dependencies|safe}};
+    $(document).ready(function(){
+        'use strict';
+        function check(firstRun) {
+            $('div.question').each(function(index, elem){
+                var qid = parseInt(elem.dataset.questionId);
+                if (!qid) {
+                    return;
+                }
+                var d = DEPENDENCIES[qid];
+                if (d && d.length>0) {
+                    var $self = $(this);
+                    $self.addClass('conditional');
+                    var show = false;
+                    d.forEach(function(di) {
+                        var $option = $('#qid_'+di.choice_question+'_cid_' + di.choice_id);
+                        if ($option.length===1) {
+                            if ($option[0].checked
+                                || $option[0].selected) {
+                                show = true;
+                            }
+                        }
+                    });
+                    if (!show) {
+                        if (firstRun) {
+                            $self.hide();
+                        } else {
+                            $self.addClass('fading').delay(500).hide(0, function() {
+                                $self.removeClass('fading');
+                            });
+                        }
+                        $self.find('input[type=radio]').each(function(){
+                            if (this.checked)
+                                this.checked = false;
+                        })
+                        $self.find('option.empty').each(function(){
+                            if (!this.selected)
+                                this.selected = true;
+                        });
+                    } else {
+                        $self.show();
+                    }
+                }
+            });
+        }
+        check(true);
+        $('.choices input[type=radio], .dropdown select').on('change', function(){
+            check(false);
+        })
+    });
+</script>

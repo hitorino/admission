@@ -1,0 +1,47 @@
+@media only screen and (max-width: 720px) {
+	* {
+		-webkit-tap-highlight-color: transparent;
+	}
+	.wrap {
+		max-width: 100%;
+	}
+	nav#toolbar ul.menu > li > span {
+		display: none;
+	}
+	nav#toolbar ul.menu > li > a.md-button[title="企划首页"] {
+		display: none;
+	}
+	body {
+		min-width: 320px;
+		background-color: white;
+	}
+	.wrap {
+		display: flex;
+		flex-direction: column;
+		min-height: calc(100vh - 120px);
+		box-shadow: none;
+		padding: 32px 16px;
+		margin: 56px 0 0 0;
+	}
+	.wrap > .description {
+		flex-grow: 1;
+	}
+	.wrap > div.msk-form {
+		flex-grow: 2.5;
+		display: flex;
+		flex-direction: column;
+	}
+	.wrap > div.msk-form > *:not(:last-child) {
+		flex-grow: 1;
+	}
+	.description > h1 {
+		font-size: 24px;
+	}
+	.question > .stem {
+		font-size: 18px;
+	}
+	form.msk-form > .ds-button {
+		font-size: 18px;
+		margin-bottom: 0;
+	}
+}

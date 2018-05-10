@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+{% load user_tools %}
+<div class="description">
+<h1>{% block title%}所有用户{%endblock%}</h1>
+</div>
+<div class="middle">
+  <ul>
+  <li>钦点：进入里区</li>
+  <li>批判：退回申请</li>
+  <li>被续：禁止申请</li>
+  <li>新闻：做出评价</li>
+  </ul>
+<table id="usertable">
+  <thead>
+    <tr>
+      <td>用户 ID</td>
+      <td>最后提交时间</td>
+      <td>权限状态</td>
+      <td>评价状态</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in user_list %}
+      <tr>
+        <td>{{user.id}}</td>
+        <td><a href="{% url 'user-report' user.id %}">{{user.commit_time}}</a></td>
+        <td>
+      {% if user.id in insider_list %}
+      [已经钦点]
+      {% elif user in pending and not user.reviewing%}
+      [已被批判]
+      {% elif user in blacklisted %}
+      [已经被续]
+      {% else %}
+      [等待内定]
+      {% endif %}
+      </td>
+      <td>
+          {% if user.suggested %}
+          [已弄新闻]
+          {% endif %}
+      </td>
+      </tr>
+    {% empty %}
+    竟然一个也没有……
+    {% endfor %}
+  </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function() { 
+    $("#usertable").tablesorter(); 
+  }); 
+</script>
+{% endblock %}

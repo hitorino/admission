@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="description">
+        <h1>{%block title%}hitorino insider 申请{%endblock%}</h1>
+</div>
+<div class="msk-form">
+    <p class="middle center">请登录。</p>
+    <a class="ds-button middle center noline msk-color-thirdary" href="{% url 'social:begin' 'discourse' %}">
+        登录
+    </a>
+</div>
+
+{%endblock%}

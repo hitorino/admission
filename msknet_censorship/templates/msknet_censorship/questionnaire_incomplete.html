@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{% block title %}{{questionnaire.name}}{% endblock %}</h1>
+{% if request.user.is_authenticated %}
+<p class="middle center">表单不完整，请重新填写。</p>
+<a class="ds-button middle center noline msk-color-thirdary" href="{% url 'quiz'%}">
+返回
+</a>
+</div>
+
+{% endif %}
+{%endblock%}

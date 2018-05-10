@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{% block title %}{{questionnaire.name}}{% endblock %}</h1>
+{% if request.user.is_authenticated %}
+<p class="middle center">很抱歉，由于身份不符，您的 hitorino* insider 申请未能通过。<br/>
+我们仍然衷心希望您能在 hitorino* 社区表区和知识库玩得愉快。感谢您的理解！</p>
+<div class="center">
+<a class="ds-button middle center noline msk-color-thirdary" href="https://forum.hitorino.moe">
+回到论坛
+</a>
+</div>
+
+{%endif%}
+{%endblock%}
